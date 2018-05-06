@@ -1,0 +1,254 @@
+<?xml version="1.0" standalone="no"?>								
+								
+<unit>								
+	<parameters>							
+		<size value="2"/>						
+		<height value="1"/>						
+		<max-hp value="900" regeneration="2"/>						
+		<max-ep value="0"/>						
+		<armor value="15"/>						
+		<armor-type value="organic"/>						
+		<sight value="15"/>						
+		<time value="160"/>						
+		<multi-selection value="true"/>						
+		<cellmap value="false"/>						
+		<levels>						
+			<level name="elite" kills="10"/>					
+		</levels>						
+		<fields>						
+			<field value="air"/>					
+		</fields>						
+		<properties/>						
+			<light enabled="false"/>					
+		<unit-requirements/>
+		<upgrade-requirements/>					
+		<resource-requirements>						
+			<resource name="gold" amount="150"/>					
+			<resource name="wood" amount="150"/>					
+			<resource name="food" amount="1"/>					
+		</resource-requirements>						
+		<resources-stored/>						
+		<image path="images/balloon.bmp"/>						
+		<image-cancel path="$COMMONDATAPATH/images/age4_cancel.bmp"/>						
+		<meeting-point value="false"/>						
+		<selection-sounds enabled="false"/>						
+		<command-sounds enabled="false"/>						
+								
+								
+	</parameters>							
+
+	<skills>							
+								
+		<skill>						
+			<type value="stop"/>					
+			<name value="stop_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="1000"/>					
+			<anim-speed value="25"/>					
+			<animation path="models/lantern_move.g3d"/>					
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+				<particle-file path="fire_particles1.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">					
+				<sound-file path="$COMMONDATAPATH/sounds/orni_standing.wav"/>				
+			</sound>					
+		</skill>						
+								
+		<skill>						
+			<type value="move"/>					
+			<name value="move_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="100"/>					
+			<anim-speed value="15"/>					
+			<animation path="models/lantern_move.g3d"/>
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+				<particle-file path="fire_particles1.xml"/>
+				<particle-file path="fire_particles2.xml"/>
+			</particles>						
+			<sound enabled="true" start-time="0">					
+				<sound-file path="$COMMONDATAPATH/sounds/orni_fly.wav"/>				
+			</sound>					
+		</skill>						
+								
+		<skill>						
+			<type value="attack"/>					
+			<name value="molotov_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="35"/>					
+			<anim-speed value="35"/>					
+			<animation path="models/lantern_move.g3d"/>	
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+				<particle-file path="fire_particles1.xml"/>
+				<particle-file path="fire_particles2.xml"/>
+			</particles>					
+			<sound enabled="true" start-time="0.5">					
+				<sound-file path="$COMMONDATAPATH/sounds/orni_fly.wav"/>			
+			</sound> 					
+			<attack-strenght value="150"/>					
+			<attack-var value="100"/>					
+			<attack-range value="6"/>					
+			<attack-type value="energy"/>					
+			<attack-start-time value="0.5"/>					
+			<attack-fields>					
+				<field value="land"/>				
+			</attack-fields>					
+			<projectile value="true">					
+				<particle value="true" path="molotov_particle_proj.xml"/>				
+				<sound enabled="false"/> 			
+			</projectile>					
+			<splash value="true">					
+				<radius value="1"/>				
+				<damage-all value="true"/>				
+				<particle value="true" path="molotov_particle_splash.xml"/>				
+			</splash>					
+		</skill>						
+								
+		<skill>						
+			<type value="attack"/>					
+			<name value="arrow_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="70"/>					
+			<anim-speed value="70"/>					
+			<animation path="models/lantern.g3d"/>
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+				<particle-file path="fire_particles1.xml"/>
+				<particle-file path="fire_particles2.xml"/>
+			</particles>						
+			<sound enabled="true" start-time="0.5">					
+				<sound-file path="$COMMONDATAPATH/sounds/orni_attack.wav"/>				
+			</sound>					
+			<attack-strenght value="150"/>					
+			<attack-var value="50"/>					
+			<attack-range value="9"/>					
+			<attack-type value="piercing"/>					
+			<attack-start-time value="0.5"/>					
+			<attack-fields>					
+				<field value="air"/>				
+			</attack-fields>					
+			<projectile value="true">					
+				<particle value="true" path="arrow_particle_proj.xml"/>				
+					<sound enabled="true">			
+					<sound-file path="$COMMONDATAPATH/sounds/orni_hit1.wav"/>			
+					<sound-file path="$COMMONDATAPATH/sounds/orni_hit2.wav"/>			
+					<sound-file path="$COMMONDATAPATH/sounds/orni_hit3.wav"/>			
+					<sound-file path="$COMMONDATAPATH/sounds/orni_hit4.wav"/>			
+					<sound-file path="$COMMONDATAPATH/sounds/orni_hit5.wav"/>			
+				</sound>				
+			</projectile>					
+			<splash value="true">					
+				<radius value="1"/>				
+				<damage-all value="true"/>				
+				<particle value="true" path="arrow_particle_splash.xml"/>				
+			</splash>					
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="50"/>
+			<animation path="models/lantern.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+								
+		<skill>						
+			<type value="die"/>					
+			<name value="die_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="25"/>					
+			<anim-speed value="25"/>					
+			<animation path="models/lantern_die.g3d"/>						
+			<sound enabled="true" start-time="0">					
+				<sound-file path="$COMMONDATAPATH/sounds/orni_die1.wav"/>				
+				<sound-file path="$COMMONDATAPATH/sounds/orni_die2.wav"/>				
+				<sound-file path="$COMMONDATAPATH/sounds/orni_die3.wav"/>				
+			</sound>					
+			<fade value="false"/>					
+		</skill>						
+								
+	</skills>							
+								
+	<commands>							
+		<command>						
+			<type value="stop"/>					
+			<name value="stop"/>					
+			<image path="$COMMONDATAPATH/images/age4_stop.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<stop-skill value="stop_skill"/>					
+		</command>						
+                								
+		<command>						
+			<type value="move"/>					
+			<name value="move"/>					
+			<image path="$COMMONDATAPATH/images/age4_move.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<move-skill value="move_skill"/>					
+		</command>						
+								
+		<command>						
+			<type value="attack"/>					
+			<name value="molotov"/>					
+			<image path="images/balloon_attack_molotov.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<move-skill value="move_skill"/>					
+			<attack-skill value="molotov_skill"/>					
+		</command>						
+
+		<command>					
+			<type value="attack"/>					
+			<name value="fire_arrow"/>					
+			<image path="images/balloon_attack_fire_arrow.bmp"/>
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<move-skill value="move_skill"/>					
+			<attack-skill value="arrow_skill"/>					
+		</command>						
+
+		<command>						
+			<type value="attack_stopped"/>					
+			<name value="hold_position"/>					
+			<image path="$COMMONDATAPATH/images/age4_hold.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements>						
+				<upgrade name="age4_training_field"/>
+			</upgrade-requirements>
+			<stop-skill value="stop_skill"/>					
+			<attack-skill value="arrow_skill"/>					
+		</command>						
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_5_osprey_helicopter"/>
+			<image path="../age5_osprey_helicopter/images/osprey_helicopter.bmp"/>
+			<unit-requirements>
+				<unit name="age5_apartment"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age5_osprey_helicopter"/>
+			<discount value="50"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_5_helicopter"/>
+			<image path="../age5_helicopter/images/helicopter.bmp"/>
+			<unit-requirements>
+				<unit name="age5_apartment"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age5_helicopter"/>
+			<discount value="50"/>
+		</command>
+	</commands>							
+</unit>								
+								

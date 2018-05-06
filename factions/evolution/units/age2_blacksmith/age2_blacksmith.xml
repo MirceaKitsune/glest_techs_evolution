@@ -1,0 +1,175 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="4" />
+		<height value="2" />
+		<max-hp value="3500" regeneration="0"/>
+		<max-ep value="0" />
+		<armor value="0" />
+		<armor-type value="stone"/>		
+		<sight value="12" />
+		<time value="120" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="1011"/>
+			<row value="1011"/>
+			<row value="0000"/>
+			<row value="1110"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties/>
+		<light enabled="false" />
+		<unit-requirements>
+			<unit name="age2_forum" />
+		</unit-requirements>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="100" />
+			<resource name="wood" amount="50" />
+			<resource name="stone" amount="100" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name="wood" amount="150" />
+			<resource name="stone" amount="250"/>
+		</resources-stored>
+		<image path="images/blacksmith.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age2_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</command-sounds>
+	</parameters>
+	
+	<skills>
+		<skill>
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/blacksmith_build.g3d" />
+			<sound enabled="false" />
+			<type value="be_built" />
+		</skill>
+		
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="50" />
+			<animation path="models/blacksmith.g3d" />
+			<particles value="true">
+				<particle-file path="fire_particles.xml"/>
+				<particle-file path="smoke_particles.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<skill>
+			<type value="upgrade" />
+			<name value="upgrade_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="150" />
+			<animation path="models/blacksmith_upgrade.g3d" />
+			<particles value="true">
+				<particle-file path="fire_particles.xml"/>
+				<particle-file path="smoke_particles.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.3">
+				<sound-file path="$COMMONDATAPATH/sounds/anvil1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/anvil2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/anvil3.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/anvil4.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="250"/>
+			<animation path="models/blacksmith_build.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/temple_die.g3d" />
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tech_building_fall1.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<commands>
+
+	    <command>
+			<type value="upgrade"/>
+			<name value="age2_sharpen_blades"/>
+			<image path="../../upgrades/age2_sharpen_blades/images/sharpen_blades.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age2_sharpen_blades"/>
+		</command>
+
+	    <command>
+			<type value="upgrade"/>
+			<name value="age2_sharpen_points"/>
+			<image path="../../upgrades/age2_sharpen_points/images/sharpen_points.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age2_sharpen_points"/>
+		</command>
+
+	    <command>
+			<type value="upgrade"/>
+			<name value="age2_reinforce_armor"/>
+			<image path="../../upgrades/age2_reinforce_armor/images/reinforce_armor.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age2_reinforce_armor"/>
+		</command>
+
+	    <command>
+			<type value="upgrade"/>
+			<name value="age2_reinforce_shields"/>
+			<image path="../../upgrades/age2_reinforce_shields/images/reinforce_shields.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age2_reinforce_shields"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_3"/>
+			<image path="../age3_blacksmith/images/blacksmith.bmp"/>
+			<unit-requirements>
+				<unit name="age3_castle"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age3_blacksmith"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

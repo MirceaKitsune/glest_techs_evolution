@@ -1,0 +1,212 @@
+<?xml version="1.0" standalone="no"?>								
+								
+<unit>								
+	<parameters>							
+		<size value="2"/>						
+		<height value="4"/>						
+		<max-hp value="1500" regeneration="1"/>						
+		<max-ep value="100" regeneration="1"/>							
+		<armor value="10"/>						
+		<armor-type value="wood"/>						
+		<sight value="10"/>						
+		<time value="100"/>						
+		<multi-selection value="true"/>						
+		<cellmap value="false"/>						
+		<levels/>						
+		<fields>						
+			<field value="land"/>					
+		</fields>						
+		<properties>						
+			<property value="rotated_climb"/>					
+		</properties>						
+		<light enabled="false"/>						
+		<unit-requirements>						
+			<unit name="age4_keep"/>										
+		</unit-requirements>						
+		<upgrade-requirements/>						
+		<resource-requirements>						
+			<resource name="gold" amount="300"/>					
+			<resource name="wood" amount="200"/>
+			<resource name="oil" amount="10"/>
+			<resource name="food" amount="1"/>					
+		</resource-requirements>						
+		<resources-stored/>						
+		<image path="images/trebuchet.bmp"/>						
+		<image-cancel path="$COMMONDATAPATH/images/age4_cancel.bmp"/>						
+		<meeting-point value="false"/>						
+		<selection-sounds enabled="false">											
+		</selection-sounds>						
+			<command-sounds enabled="false">											
+		</command-sounds>									
+	</parameters>							
+								
+	<skills>							
+								
+		<skill>						
+			<type value="stop"/>					
+			<name value="stop_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="1000"/>					
+			<anim-speed value="40"/>					
+			<animation path="models/trebuchet.g3d"/>
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+			</particles>		
+			<sound enabled="false"/>					
+		</skill>						
+		<skill>							
+			<type value="move"/>						
+			<name value="move_skill"/>						
+			<ep-cost value="0"/>						
+			<speed value="80"/>						
+			<anim-speed value="180"/>						
+			<animation path="models/trebuchet_move.g3d"/>
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+			</particles>						
+			<sound enabled="false"/>						
+		</skill>				
+								
+		<skill>						
+			<type value="attack"/>					
+			<name value="attack_skill"/>					
+			<ep-cost value="25"/>					
+			<speed value="40"/>					
+			<anim-speed value="40"/>					
+			<animation path="models/trebuchet_fire.g3d"/>
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+			</particles>		
+			<sound enabled="true" start-time="0.2">					
+				<sound-file path="$COMMONDATAPATH/sounds/catapult_attack1.wav"/>				
+				<sound-file path="$COMMONDATAPATH/sounds/catapult_attack2.wav"/>				
+			</sound> 					
+			<attack-strenght value="450"/>					
+			<attack-var value="150"/>					
+			<attack-range value="20"/>					
+			<attack-type value="impact"/>					
+			<attack-start-time value="0.6"/>					
+			<attack-fields>					
+				<field value="land"/>				
+			</attack-fields>					
+			<projectile value="true">					
+				<particle value="true" path="particle_proj.xml"/>				
+				<sound enabled="true">				
+					<sound-file path="$COMMONDATAPATH/sounds/catapult_hit1.wav"/>			
+					<sound-file path="$COMMONDATAPATH/sounds/catapult_hit2.wav"/>			
+				</sound>				
+			</projectile>					
+			<splash value="true">					
+				<radius value="2"/>				
+				<damage-all value="true"/>				
+				<particle value="true" path="particle_splash.xml"/>				
+			</splash>					
+		</skill>	
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="30"/>
+			<animation path="models/trebuchet_fire.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+								
+		<skill>						
+			<type value="die"/>					
+			<name value="die_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="120"/>					
+			<anim-speed value="120"/>					
+			<animation path="models/trebuchet_die.g3d"/>
+			<particles value="true">										
+				<particle-file path="die_smoke_particles.xml"/>									
+				<particle-file path="die_glow_particles.xml"/>									
+			</particles>						
+			<sound enabled="true" start-time="0.1">					
+				<sound-file path="$COMMONDATAPATH/sounds/catapult_die1.wav"/>				
+				<sound-file path="$COMMONDATAPATH/sounds/catapult_die2.wav"/>				
+				<sound-file path="$COMMONDATAPATH/sounds/catapult_die3.wav"/>				
+			</sound> 					
+			<fade value="false"/>					
+		</skill>						
+								
+		<skill>						
+			<type value="stop"/>					
+			<name value="stop_skill"/>					
+			<ep-cost value="0"/>					
+			<speed value="1000"/>					
+			<anim-speed value="40"/>					
+			<animation path="models/trebuchet.g3d"/>					
+			<sound enabled="false"/>					
+		</skill>
+
+		<skill>												
+			<type value="morph"/>											
+			<name value="pack_trebuchet"/>											
+			<ep-cost value="0"/>											
+			<speed value="500"/>											
+			<anim-speed value="200"/>											
+			<animation path="models/trebuchet.g3d"/>											
+			<sound enabled="false"/>											
+		</skill>						
+								
+	</skills>							
+								
+	<commands>												
+		<command>						
+			<type value="stop"/>					
+			<name value="stop"/>					
+			<image path="$COMMONDATAPATH/images/age4_stop.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<stop-skill value="stop_skill"/>					
+		</command>						
+										
+		<command>						
+			<type value="attack"/>					
+			<name value="fire_ball"/>					
+			<image path="images/trebuchet_attack.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements/>					
+			<move-skill value="move_skill"/>					
+			<attack-skill value="attack_skill"/>					
+		</command>
+								
+       <command>								
+			<type value="attack_stopped"/>					
+			<name value="hold_position"/>					
+			<image path="$COMMONDATAPATH/images/age4_hold.bmp"/>					
+			<unit-requirements/>					
+			<upgrade-requirements>						
+				<upgrade name="age4_training_field"/>
+			</upgrade-requirements>			
+			<stop-skill value="stop_skill"/>					
+			<attack-skill value="attack_skill"/>					
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age4_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_5"/>
+			<image path="../age5_uragan/images/uragan.bmp"/>
+			<unit-requirements>
+				<unit name="age5_apartment"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age5_uragan"/>
+			<discount value="50"/>
+		</command>
+								
+	</commands>							
+</unit>								

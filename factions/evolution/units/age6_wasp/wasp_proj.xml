@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="true" luminance="true" path="$COMMONDATAPATH/images/particle_4.bmp"/>   <mode value="black"/>
+    	<model value="true" path="models/wasprocket.g3d"> 
+                <cycles value="1"/>
+        </model>
+	<primitive value="quad"/>
+	<offset x="0.0" y=".2" z="0.3"/>
+	<color red="0.3" green="0.3" blue="0.3" alpha=".8" />
+	<color-no-energy red="0.0" green="0.0" blue="0.0" alpha="0.3" />
+    	<size value="2" />
+    	<size-no-energy value="3.2" />
+    	<speed value="10.0" />
+	<gravity value="0"/>
+    	<emission-rate value="1" />
+    	<energy-max value="10" />
+    	<energy-var value="2" />
+	
+	<trajectory type="linear">
+		<speed value="20"/>
+                <scale value="1.5"/>
+	</trajectory>
+</projectile-particle-system>

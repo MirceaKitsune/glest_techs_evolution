@@ -1,0 +1,236 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="50" regeneration="3"/>
+		<max-ep value="4" regeneration="1"/>
+		<armor value="0"/>	
+		<armor-type value="leather"/>				
+		<sight value="10"/>
+		<time value="5"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="200"/>	
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/rocket_grunt.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/ma_sel1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/ma_sel2.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/ma_ack1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/ma_ack2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/ma_ack3.wav"/>
+		</command-sounds>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="20"/>
+			<animation path="models/rocketstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="230"/>
+			<anim-speed value="115"/>
+			<animation path="models/rocketrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="run_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="175"/>
+			<animation path="models/rocketrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="4"/>
+			<speed value="100"/>
+			<anim-speed value="100"/>
+			<animation path="models/rocketshoot.g3d"/>
+			<sound enabled="true" start-time="0.2">
+				<sound-file path="$COMMONDATAPATH/sounds/missle_.wav"/>
+			</sound>
+			<attack-strenght value="45"/>
+			<attack-var value="20"/>
+			<attack-range value="7"/>
+			<attack-type value="impact"/>
+			<attack-start-time value="0.25"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="rocket_grunt_proj.xml"/>
+				<sound enabled="true">
+					<sound-file path="$COMMONDATAPATH/sounds/small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="1"/>
+				<damage-all value="true"/>
+				<particle value="true" path="shell_expl.xml"/>
+			</splash>
+		</skill>
+		
+		<skill>
+			<type value="attack"/>
+			<name value="antiair_skill"/>		
+			<ep-cost value="4"/>
+			<speed value="100"/>
+			<anim-speed value="80"/>
+			<animation path="models/rocketshootup.g3d"/>
+			<sound enabled="true" start-time="0.5">
+				<sound-file path="$COMMONDATAPATH/sounds/missle_.wav"/>
+			</sound>
+			<attack-strenght value="45"/>
+			<attack-var value="25"/>
+			<attack-range value="7"/>
+			<attack-type value="impact"/>
+			<attack-start-time value="0.55"/>
+			<attack-fields>
+				<field value="air"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="rocket_grunt_proj.xml"/>
+				<sound enabled="true">
+					<sound-file path="$COMMONDATAPATH/sounds/small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="1"/>
+				<damage-all value="true"/>
+				<particle value="true" path="shell_expl.xml"/>
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="150"/>
+			<anim-speed value="50"/>
+			<animation path="models/rocketshootup.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/rocketdie.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/null.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="$COMMONDATAPATH/images/age6_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age6_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="images/rocket_grunt_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+		
+		<command>
+			<type value="attack"/>
+			<name value="antiair"/>
+			<image path="images/rocket_grunt_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="antiair_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="$COMMONDATAPATH/images/age6_hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements>						
+				<upgrade name="age6_training_field"/>
+			</upgrade-requirements>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_chemical_trooper/images/chemical_trooper.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_chemical_trooper"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

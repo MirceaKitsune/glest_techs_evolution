@@ -1,0 +1,145 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="2" />
+		<height value="2" />
+		<max-hp value="300" regeneration="0"/>
+		<max-ep value="0" />
+		<armor value="0" />
+		<armor-type value="metal"/>				
+		<sight value="1" />
+		<time value="50" />
+		<multi-selection value="false" />
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false" />
+		<rotationAllowed value="false" />
+		<unit-requirements>
+			<unit name="age7_baseship"/>
+		</unit-requirements>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="300"/>
+			<resource name="stone" amount="200"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/invasion_beacon.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age7_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/magic_click.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/magic_click.wav"/>
+		</command-sounds>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="be_built" />
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="120"/>
+			<speed value="120"/>
+			<anim-speed value="300" />
+			<animation path="models/invasion_beacon_build.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="100" />
+			<animation path="models/invasion_beacon.g3d" />
+			<sound enabled="false" />
+		</skill>	
+
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/2building_die.g3d" />
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/magic_building_fall2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+		<skill>				
+			<type value="upgrade"/>			
+			<name value="upgrade_skill"/>			
+			<ep-cost value="0" />			
+			<speed value="200" />			
+			<anim-speed value="10" />			
+			<animation path="models/invasion_capsule.g3d"/>	
+			<particles value="true">
+				<particle-file path="particle_beacon_0.xml"/>
+				<particle-file path="particle_beacon_1.xml"/>
+			</particles>	
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/beaconsignal.wav"/>
+			</sound>
+		</skill>
+
+	</skills>
+	
+	<commands>					
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age7_plasma_nuclear_reaction" />
+			<image path="../../upgrades/age7_plasma_nuclear_reaction/images/plasma_nuclear_reaction.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age7_plasma_nuclear_reaction"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age7_laser_refraction" />
+			<image path="../../upgrades/age7_laser_refraction/images/laser_refraction.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age7_laser_refraction"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age7_focus_antimatter" />
+			<image path="../../upgrades/age7_focus_antimatter/images/focus_antimatter.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age7_focus_antimatter"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age7_ion_molecule_shields" />
+			<image path="../../upgrades/age7_ion_molecule_shields/images/ion_molecule_shields.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age7_ion_molecule_shields"/>
+		</command>
+
+	</commands>
+</unit>

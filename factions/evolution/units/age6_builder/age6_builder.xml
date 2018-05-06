@@ -1,0 +1,263 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="750" regeneration="0"/>
+		<max-ep value="0"/>
+		<armor value="0"/>	
+		<armor-type value="metal"/>
+		<sight value="15"/>
+		<time value="60"/>
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="100"/>
+			<resource name="stone" amount="25"/>
+			<resource name="food" amount="1"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/builder.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/robo.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/robo.wav"/>
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="20"/>
+			<animation path="models/dronestand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="120"/>
+			<animation path="models/dronerun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_loaded_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="120"/>
+			<animation path="models/dronerun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="stop"/>
+			<name value="stop_loaded_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="60"/>
+			<animation path="models/dronework.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="harvest"/>
+			<name value="mine_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="60"/>
+			<animation path="models/dronework.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="repair"/>
+			<name value="fix_skill"/>
+			<ep-cost value="0"/>
+			<speed value="200"/>
+			<anim-speed value="60"/>
+			<animation path="models/dronework.g3d"/>	<particles value="true">
+				<particle-file path="repair.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="build"/>
+			<name value="build_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="200"/>
+			<anim-speed value="60"/>
+			<animation path="models/dronework.g3d"/>	<particles value="true">
+				<particle-file path="repair.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="40"/>
+			<animation path="models/dronework.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="120"/>
+			<animation path="models/dronedie.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tank_destroy_2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="$COMMONDATAPATH/images/age6_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age6_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="harvest"/>
+			<name value="mine"/>
+			<image path="$COMMONDATAPATH/images/age6_mine.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_loaded_skill"/>
+			<harvest-skill value="mine_skill"/>
+			<stop-loaded-skill value="stop_loaded_skill"/>
+			<move-loaded-skill value="move_loaded_skill"/>
+			<harvested-resources>
+				<resource name="gold"/>	
+				<resource name="stone"/>									
+			</harvested-resources>
+			<max-load value="50"/>
+			<hits-per-unit value="2"/>				
+		</command>
+
+		<command>
+			<type value="harvest"/>
+			<name value="harvest_wood"/>
+			<image path="$COMMONDATAPATH/images/age6_harvest_wood.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_loaded_skill"/>
+			<harvest-skill value="mine_skill"/>
+			<stop-loaded-skill value="stop_loaded_skill"/>
+			<move-loaded-skill value="move_loaded_skill"/>
+			<harvested-resources>
+				<resource name="wood"/>									
+			</harvested-resources>
+			<max-load value="50"/>
+			<hits-per-unit value="2"/>				
+		</command>
+
+		<command>
+			<type value="build"/>
+			<name value="build"/>
+			<image path="$COMMONDATAPATH/images/age6_build_basic.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<build-skill value="build_skill"/>
+			<buildings>
+				<building name="age6_city_center"/>
+				<building name="age6_barracks"/>
+				<building name="age6_silo"/>
+				<building name="age6_tech_lab"/>
+				<building name="age6_warehouse"/>
+				<building name="age6_eml_turret"/>
+				<building name="age6_rocket_turret"/>
+			</buildings>
+			<start-sound enabled="false"/>
+			<built-sound enabled="true">
+				<sound-file path="$COMMONDATAPATH/sounds/robo.wav"/>					
+			</built-sound>	
+		</command>
+
+		<command>
+			<type value="repair"/>
+			<name value="repair"/>
+			<image path="$COMMONDATAPATH/images/age6_repair.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="fix_skill"/>
+			<repaired-units>
+				<unit name="age6_city_center"/>
+				<unit name="age6_barracks"/>
+				<unit name="age6_silo"/>
+				<unit name="age6_tech_lab"/>
+				<unit name="age6_warehouse"/>
+				<unit name="age6_eml_turret"/>
+				<unit name="age6_rocket_turret"/>
+				<unit name="age6_refinery"/>
+				<unit name="age6_factory"/>
+				<unit name="age6_hangar"/>
+			</repaired-units>		
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_robot/images/robot.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_robot"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

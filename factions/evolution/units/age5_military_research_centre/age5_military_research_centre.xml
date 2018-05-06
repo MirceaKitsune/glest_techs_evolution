@@ -1,0 +1,176 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="4" />
+		<height value="2" />
+		<max-hp value="5500" regeneration="0"/>
+		<max-ep value="0" />
+		<armor value="0" />
+		<armor-type value="stone"/>		
+		<sight value="12" />
+		<time value="120" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="1011"/>
+			<row value="1011"/>
+			<row value="0000"/>
+			<row value="1110"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false" />
+		<unit-requirements>
+			<unit name="age5_apartment" />
+		</unit-requirements>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="100" />
+			<resource name="wood" amount="50" />
+			<resource name="stone" amount="100" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name="wood" amount="200" />
+			<resource name="stone" amount="350"/>
+		</resources-stored>
+		<image path="images/military_research_centre.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age5_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</command-sounds>
+	</parameters>
+	
+	<skills>
+		<skill>
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/research_build.g3d" />
+			<sound enabled="false" />
+			<type value="be_built" />
+		</skill>
+		
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="50" />
+			<animation path="models/reacerch_base.g3d" />
+			<sound enabled="false" />
+			<particles value="true">
+				<particle-file path="smoke_particles1.xml"/>
+			</particles>
+		</skill>	
+		
+		<skill>
+			<type value="upgrade" />
+			<name value="upgrade_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="150" />
+			<animation path="models/reacerch_base.g3d" />
+			<particles value="true">
+				<particle-file path="smoke_particles1.xml"/>
+				<particle-file path="smoke_particles2.xml"/>
+				<particle-file path="smoke_particles3.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.3">
+				<sound-file path="$COMMONDATAPATH/sounds/anvil1.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="500"/>
+			<anim-speed value="250"/>
+			<animation path="models/research_build.g3d"/>
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/research_die.g3d" />
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tech_building_fall1.wav"/>
+			</sound>	
+			<particles value="true">
+				<particle-file path="smoke_particles.xml"/>
+				<particle-file path="glow_particles.xml"/>
+			</particles>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<commands>
+		<command>
+			<type value="upgrade"/>
+			<name value="age5_recoil_reduction" />
+			<image path="../../upgrades/age5_recoil_reduction/images/recoil_reduction.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age5_recoil_reduction"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age5_shorter_refire_delay" />
+			<image path="../../upgrades/age5_shorter_refire_delay/images/shorter_refire_delay.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age5_shorter_refire_delay"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age5_concentrated_explosives" />
+			<image path="../../upgrades/age5_concentrated_explosives/images/concentrated_explosives.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age5_concentrated_explosives"/>
+		</command>
+
+		<command>
+			<type value="upgrade"/>
+			<name value="age5_dense_body_armor" />
+			<image path="../../upgrades/age5_dense_body_armor/images/dense_body_armor.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<upgrade-skill value="upgrade_skill"/>
+			<produced-upgrade name="age5_dense_body_armor"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_6"/>
+			<image path="../age6_silo/images/silo.bmp"/>
+			<unit-requirements>
+				<unit name="age6_city_center"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age6_silo"/>
+			<discount value="50"/>
+		</command>
+	</commands>
+</unit>

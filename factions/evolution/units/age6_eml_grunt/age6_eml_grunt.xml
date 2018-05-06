@@ -1,0 +1,198 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="40" regeneration="3"/>
+		<max-ep value="6" regeneration="1"/>
+		<armor value="0"/>	
+		<armor-type value="leather"/>				
+		<sight value="10"/>
+		<time value="7"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements>
+			<upgrade name="age6_plasma_weapons"/>
+		</upgrade-requirements>
+		<resource-requirements>
+			<resource name="gold" amount="150"/>	
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/eml_grunt.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/fe_sel1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_sel2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_sel3.wav"/>		
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/fe_ack1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_ack2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_ack3.wav"/>
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="20"/>
+			<animation path="models/beamstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="270"/>
+			<anim-speed value="135"/>
+			<animation path="models/beamrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="run_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="175"/>
+			<animation path="models/beamrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="6"/>
+			<speed value="100"/>
+			<anim-speed value="100"/>
+			<animation path="models/beamshoot.g3d"/>
+			<particles value="true" start-time="0.2" end-time="0.7">
+				<particle-file path="emlgrunt_bflash.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.2">
+				<sound-file path="$COMMONDATAPATH/sounds/beam.wav"/>
+			</sound>
+			<attack-strenght value="120"/>
+			<attack-var value="35"/>
+			<attack-range value="9"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.25"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="emlgrunt_beam.xml"/>
+				<sound enabled="true">
+					<sound-file path="$COMMONDATAPATH/sounds/small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="eml_splash_small.xml"/>
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="80"/>
+			<animation path="models/beamshoot.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/beamdie.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/null.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="$COMMONDATAPATH/images/age6_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age6_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="images/eml_grunt_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+		
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="$COMMONDATAPATH/images/age6_hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements>						
+				<upgrade name="age6_training_field"/>
+			</upgrade-requirements>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_martian_trooper/images/martian_trooper.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_martian_trooper"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

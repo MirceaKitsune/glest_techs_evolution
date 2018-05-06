@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<unit-particle-system>
+    	<texture value="true" path="$COMMONDATAPATH/images/particle_glow.bmp" luminance="false"/>
+	<primitive value="quad"/>
+	<offset x="0" y="-0.2" z="0.0"/>
+	<direction x="0" y="0.0001" z="-0.8"/>
+	<color red="0.8" green="0.4" blue="0.0" alpha="0.5" />
+	<color-no-energy red="0.0" green="0.0" blue="0.0" alpha="0.0" />
+    	<radius value="1.0" />
+    	<size value="4.0" />
+    	<size-no-energy value="6.0" />
+    	<speed value="3" />
+	<gravity value="0.0"/>
+    	<emission-rate value="2" />
+    	<energy-max value="100" />
+    	<energy-var value="0" />
+	<relative value="false" />
+    	<fixed value="false" />
+    	<teamcolorNoEnergy value="false" />
+    	<teamcolorEnergy value="false" />
+</unit-particle-system>

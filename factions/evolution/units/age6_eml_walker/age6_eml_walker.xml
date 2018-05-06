@@ -1,0 +1,231 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="2"/>
+		<height value="3"/>
+		<max-hp value="500" regeneration="0"/>
+		<max-ep value="5" regeneration="1"/>
+		<armor value="15"/>	
+		<armor-type value="metal"/>				
+		<sight value="11"/>
+		<time value="40"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements>
+			<upgrade name="age6_plasma_weapons"/>
+		</upgrade-requirements>
+		<resource-requirements>
+			<resource name="gold" amount="200"/>	
+			<resource name="wood" amount="150"/>	
+			<resource name="oil" amount="5"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/eml_walker.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/fe_sel1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_sel2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_sel3.wav"/>		
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/fe_ack1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_ack2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/fe_ack3.wav"/>
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="500"/>
+			<anim-speed value="5"/>
+			<animation path="models/mechstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="100"/>
+			<animation path="models/mechrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="5"/>
+			<speed value="70"/>
+			<anim-speed value="70"/>
+			<animation path="models/mechshoot.g3d"/>
+			<particles value="true" start-time="0.4" end-time="0.9">
+				<particle-file path="emlwalker_bflash.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.4">
+				<sound-file path="$COMMONDATAPATH/sounds/beam.wav"/>
+			</sound>
+			<attack-strenght value="300"/>
+			<attack-var value="50"/>
+			<attack-range value="9"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.4"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="emlwalker_beam_proj.xml"/>
+				<sound enabled="true">
+					<sound-file path="$COMMONDATAPATH/sounds/small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="eml_splash_large.xml"/>
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="mgun_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="100"/>
+			<animation path="models/mechmgun.g3d"/>
+			<particles value="true" start-time="0.1" end-time="0.6">
+				<particle-file path="emlwalker_mflash.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.20">
+				<sound-file path="$COMMONDATAPATH/sounds/hmg.wav"/>
+			</sound>
+			<attack-strenght value="20"/>
+			<attack-var value="10"/>
+			<attack-range value="7"/>
+			<attack-type value="impact"/>
+			<attack-start-time value="0.30"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="hgun_hit.xml"/>
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="150"/>
+			<anim-speed value="70"/>
+			<animation path="models/mechmgun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="50"/>
+			<animation path="models/mechdie.g3d"/>    <particles value="true">
+         <particle-file path="damage_smoke.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tank_destroy_2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="$COMMONDATAPATH/images/age6_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age6_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="images/eml_walker_attack_beam.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="images/eml_walker_attack_hmg.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="mgun_skill"/>
+		</command>		
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="$COMMONDATAPATH/images/age6_hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements>						
+				<upgrade name="age6_training_field"/>
+			</upgrade-requirements>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_assault_tripod/images/assault_tripod.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_assault_tripod"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

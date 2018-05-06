@@ -1,0 +1,149 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="4"/>
+		<height value="6"/>
+		<max-hp value="6000" regeneration="0"/>
+		<max-ep value="0"/>
+		<armor value="0"/>
+		<armor-type value="metal"/>				
+		<sight value="5"/>
+		<time value="250"/>
+		<multi-selection value="false"/>
+		<cellmap value="true">
+			<row value="1001"/> 
+			<row value="0000"/> 
+			<row value="0000"/> 
+			<row value="1001"/>  
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+			<light enabled="false"/>
+		<rotationAllowed value="true" />
+		<unit-requirements>				
+			<unit name="age7_baseship"/>			
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="200"/>
+			<resource name="stone" amount="100"/>
+			<resource name="wood" amount="100"/>
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "gold" amount="500"/>				
+			<resource name= "stone" amount="500"/>				
+		</resources-stored>
+		<image path="images/space_port.bmp" />
+		<image-cancel path="$COMMONDATAPATH/images/age7_cancel.bmp"/>
+		<meeting-point value="true" image-path="$COMMONDATAPATH/images/age7_meeting_point.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/mars_click.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/mars_click.wav"/>
+		</command-sounds>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="500" />
+			<anim-speed value="100" />
+			<animation path="models/port.g3d"/>
+			<sound enabled="false" />
+		</skill>
+		
+		<skill>
+			<type value="be_built"/>
+			<name value="be_built_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="1"/>
+			<animation path="models/port_build.g3d"/>
+			<sound enabled="false"/>
+		</skill>	
+
+		<skill>
+			<type value="produce" />
+			<name value="produce_skill"/>		
+			<ep-cost value="0" />
+			<speed value="100" />
+			<anim-speed value="100" />
+			<animation path="models/port_produce_air.g3d" />
+			<sound enabled="false" />
+		</skill>	
+		
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/building_dead_4.g3d" />
+			<particles value="true">			
+				<particle-file path="die_smoke_particles.xml"/>		
+				<particle-file path="die_glow_particles.xml"/>		
+			</particles>	
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/magic_building_fall2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_buzzard" />
+			<image path="../age7_buzzard/images/buzzard.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_buzzard"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_kestral" />
+			<image path="../age7_kestral/images/kestral.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_kestral"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_disc_droid" />
+			<image path="../age7_disc_droid/images/disc_droid.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_disc_droid"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_flying_saucer" />
+			<image path="../age7_flying_saucer/images/flying_saucer.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_flying_saucer"/>
+		</command>
+
+	</commands>
+</unit>

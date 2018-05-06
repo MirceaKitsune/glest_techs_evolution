@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="true" path="$COMMONDATAPATH/images/particle_4.bmp" luminance="true"/>   <mode value="black"/>
+    	<model value="true" path="$COMMONDATAPATH/models/missle_2.g3d"/>
+	<primitive value="quad"/>
+	<offset x="0" y="-1.1" z="-1"/>
+	<color red="0.5" green="0.5" blue="0.5" alpha="1" />
+	<color-no-energy red="0.0" green="0.0" blue="0.0" alpha="0.4" />
+    	<size value="2" />
+    	<size-no-energy value="4.5" />
+    	<speed value="10.0" />
+	<gravity value="0"/>
+    	<emission-rate value="0.5" />
+    	<energy-max value="20" />
+    	<energy-var value="2" />
+	
+	<trajectory type="linear">
+		<speed value="25"/>
+		<scale value="0"/>
+	</trajectory>
+</projectile-particle-system>

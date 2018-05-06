@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+
+<upgrade>
+	<image path="images/energy_shields_level_2.bmp"/>
+	<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+	<time value="200"/>
+	<unit-requirements/>
+	<upgrade-requirements>
+		<upgrade name="age6_plasma_weapons"/>
+		<upgrade name="age6_plasma_fusion"/>
+		<upgrade name="age6_energy_shields_level_1"/>
+	</upgrade-requirements>
+	<resource-requirements>
+		<resource name="gold" amount="300"/>
+		<resource name="stone" amount="150"/>
+	</resource-requirements>
+	<effects>
+		<unit name="age6_eml_grunt"/>
+		<unit name="age6_grunt"/>
+		<unit name="age6_rocket_grunt"/>
+		<unit name="age6_raider"/>
+		<unit name="age6_battle_tank"/>
+		<unit name="age6_ifv_rocket"/>
+		<unit name="age6_eml_walker"/>
+		<unit name="age6_mrls"/>
+		<unit name="age6_wasp"/>
+		<unit name="age6_harrier"/>
+		<unit name="age6_gunship"/>
+		<unit name="age6_hunter_vtol"/>
+	</effects>
+	<max-hp value="0"/>
+	<max-ep value="0"/>
+	<sight value="0"/>
+	<attack-strenght value="0"/>
+	<attack-range value="0"/>
+	<armor value="50"/>
+	<move-speed value="0"/>
+	<production-speed value="0"/>
+</upgrade>

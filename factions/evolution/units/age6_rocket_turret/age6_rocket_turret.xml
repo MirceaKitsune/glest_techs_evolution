@@ -1,0 +1,179 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="2"/>
+		<height value="3"/>
+		<max-hp value="1000" regeneration="0"/>
+		<max-ep value="5" regeneration="1"/>
+		<armor value="10"/>	
+		<armor-type value="metal"/>				
+		<sight value="12"/>
+		<time value="150"/>	
+		<multi-selection value="false"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="200"/>	
+			<resource name="stone" amount="100"/>	
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/rocket_turret.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/building_select_1.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/building_select_1.wav"/>
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="500"/>
+			<anim-speed value="3"/>
+			<animation path="models/rocketturretstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="500"/>
+			<anim-speed value="3"/>
+			<animation path="models/rocketturretstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/rocketturretbuilt.g3d" />    <particles value="true">
+				<particle-file path="built_smoke_2.xml"/>
+				<particle-file path="built_spark_2.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>
+	
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="5"/>
+			<speed value="40"/>
+			<anim-speed value="120"/>
+			<animation path="models/rocketturretshoot.g3d"/>
+			<sound enabled="true" start-time="0.9">
+				<sound-file path="$COMMONDATAPATH/sounds/missle_.wav"/>
+			</sound>
+			<attack-strenght value="90"/>
+			<attack-var value="30"/>
+			<attack-range value="9"/>
+			<attack-type value="impact"/>
+			<attack-start-time value="0.9"/>
+			<attack-fields>
+				<field value="land"/>
+				<field value="air"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="rocket_turret_proj.xml"/>
+				<sound enabled="true">
+					<sound-file path="$COMMONDATAPATH/sounds/small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="1"/>
+				<damage-all value="true"/>
+				<particle value="true" path="shell_expl.xml"/>
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="250"/>
+			<animation path="models/rocketturretbuilt.g3d" />
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="100"/>
+			<animation path="models/rocketturretdie.g3d"/>    <particles value="true">
+				<particle-file path="damage_smoke.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/building_destroy.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="images/rocket_turret_attack_off.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="attack_on"/>
+			<image path="images/rocket_turret_attack_on.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_defense_cannon/images/defense_cannon.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_defense_cannon"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

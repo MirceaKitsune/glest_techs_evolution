@@ -1,0 +1,158 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="4"/>
+		<height value="6"/>
+		<max-hp value="6000" regeneration="0"/>
+		<max-ep value="0"/>
+		<armor value="0"/>
+		<armor-type value="metal"/>				
+		<sight value="5"/>
+		<time value="250"/>
+		<multi-selection value="false"/>
+		<cellmap value="true">
+			<row value="0110"/> 
+			<row value="1111"/> 
+			<row value="1001"/> 
+			<row value="0000"/>  
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+			<light enabled="false"/>
+		<rotationAllowed value="true" />
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="150"/>
+			<resource name="stone" amount="200"/>
+			<resource name="wood" amount="50"/>
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "gold" amount="500"/>
+			<resource name= "wood" amount="500"/>
+			<resource name= "stone" amount="500"/>
+		</resources-stored>
+		<image path="images/command_port.bmp" />
+		<image-cancel path="$COMMONDATAPATH/images/age7_cancel.bmp"/>
+		<meeting-point value="true" image-path="$COMMONDATAPATH/images/age7_meeting_point.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/magic_click.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/magic_click.wav"/>
+		</command-sounds>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="500" />
+			<anim-speed value="100" />
+			<animation path="models/martian_hq.g3d"/>
+			<sound enabled="false" />
+		</skill>
+		
+		<skill>
+			<type value="be_built"/>
+			<name value="be_built_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1"/>
+			<anim-speed value="1"/>
+			<animation path="models/martian_hq_deploy.g3d"/>
+			<sound enabled="false"/>
+		</skill>	
+		<skill>				
+			<type value="upgrade"/>			
+			<name value="upgrade_skill"/>			
+			<ep-cost value="0" />			
+			<speed value="100" />			
+			<anim-speed value="50" />			
+			<animation path="models/martian_hq_produce.g3d" />			
+			<sound enabled="false" />
+						
+		</skill>
+
+		<skill>
+			<type value="produce" />
+			<name value="produce_skill"/>		
+			<ep-cost value="0" />
+			<speed value="100" />
+			<anim-speed value="100" />
+			<animation path="models/martian_hq_produce.g3d" />
+			<sound enabled="false" />
+		</skill>	
+		
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/building_dead_4.g3d" />
+			<particles value="true">			
+				<particle-file path="die_smoke_particles.xml"/>		
+				<particle-file path="die_glow_particles.xml"/>		
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/magic_building_fall2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_heavy_missile" />
+			<image path="../age7_heavy_missile/images/heavy_missile.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_heavy_missile"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_space_tank" />
+			<image path="../age7_space_tank/images/space_tank.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_space_tank"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_tripod" />
+			<image path="../age7_tripod/images/tripod.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_tripod"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_assault_tripod" />
+			<image path="../age7_assault_tripod/images/assault_tripod.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age7_assault_tripod"/>
+		</command>
+
+	</commands>
+</unit>

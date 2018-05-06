@@ -1,0 +1,259 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<parameters>
+		<size value="1"/>
+		<height value="2"/>
+		<max-hp value="800" regeneration="0"/>
+		<max-ep value="0"/>
+		<armor value="0"/>
+		<armor-type value="leather"/>					
+		<sight value="8"/>
+		<time value="80"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="150"/>
+			<resource name="oil" amount="5"/>			
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/technician.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age5_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/technician_select1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select3.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select4.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select5.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select6.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select7.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_select8.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/technician_ack1.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack2.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack3.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack4.wav"/>		
+			<sound path="$COMMONDATAPATH/sounds/technician_ack5.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack6.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack7.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack8.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack9.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack10.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack11.wav"/>		
+			<sound path="$COMMONDATAPATH/sounds/technician_ack12.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack13.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack14.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack15.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack16.wav"/>		
+			<sound path="$COMMONDATAPATH/sounds/technician_ack17.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack18.wav"/>
+			<sound path="$COMMONDATAPATH/sounds/technician_ack19.wav"/>
+		</command-sounds>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="55"/>
+			<animation path="models/technician_idle.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="210"/>
+			<anim-speed value="210"/>
+			<animation path="models/technician_walk.g3d"/>
+			<sound enabled="false"/>
+		</skill>	
+
+		<skill>
+			<type value="repair"/>
+			<name value="repair_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="210"/>
+			<anim-speed value="210"/>
+			<animation path="models/technician_build.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build3.wav"/>	
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build4.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build5.wav"/>	
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build6.wav"/>
+			</sound>
+		</skill>
+                
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="55"/>
+			<anim-speed value="55"/>
+			<animation path="models/technician_attack.g3d"/>
+			<sound enabled="true" start-time="0.2">
+				<sound-file path="$COMMONDATAPATH/sounds/shot1.wav"/>
+			</sound> 
+			<particles value="true" start-time="0.2" end-time="0.3">
+				<particle-file path="flash.xml"/>
+			</particles>
+			<attack-strenght value="150"/>
+			<attack-var value="100"/>
+			<attack-range value="10"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.2"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="true">
+				<particle value="true" path="particle_proj.xml"/>
+				<sound enabled="false"/>
+			</projectile>
+			<splash value="false"/>
+		</skill>
+
+		<skill>
+			<type value="build"/>
+			<name value="build_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="210"/>
+			<anim-speed value="210"/>
+			<animation path="models/technician_build.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build3.wav"/>	
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build4.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build5.wav"/>	
+				<sound-file path="$COMMONDATAPATH/sounds/technician_build6.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="150"/>
+			<anim-speed value="75"/>
+			<animation path="models/technician_build.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="90"/>
+			<anim-speed value="50"/>
+			<animation path="models/technician_die.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/technician_die1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_die2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_die3.wav"/>	
+				<sound-file path="$COMMONDATAPATH/sounds/technician_die4.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>						
+
+	</skills>
+	
+	<commands>
+
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="$COMMONDATAPATH/images/age5_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="$COMMONDATAPATH/images/age5_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="build"/>
+			<name value="build_advanced"/>
+			<image path="$COMMONDATAPATH/images/age5_build_advanced.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<build-skill value="build_skill"/>
+			<buildings>
+				<building name="age5_factory"/>
+				<building name="age5_hangar"/>
+				<building name="age5_oil_well"/>
+            </buildings>
+			<start-sound enabled="false"/>
+			<built-sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/technician_select1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/technician_select5.wav"/>
+			</built-sound>
+		</command>
+
+		<command>
+			<type value="repair"/>
+			<name value="repair"/>
+			<image path="$COMMONDATAPATH/images/age5_repair.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="repair_skill"/>
+			<repaired-units>	
+				<unit name="age5_factory"/>
+				<unit name="age5_hangar"/>
+				<unit name="age5_jeep"/>
+				<unit name="age5_tank"/>
+				<unit name="age5_cougar"/>
+				<unit name="age5_uragan"/>
+			</repaired-units>		
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="images/technician_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_6"/>
+			<image path="../age6_drone/images/drone.bmp"/>
+			<unit-requirements>
+				<unit name="age6_city_center"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age6_drone"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

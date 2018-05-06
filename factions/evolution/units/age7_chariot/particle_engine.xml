@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<unit-particle-system>
+	<size value="0.5" />
+	<emission-rate value="5" />
+	<radius value="0.1"/>
+	<offset x="0" y="-1" z="-1.2"/> 
+	<color red="0.4" green="0.2" blue="0.2" alpha="0.4" />
+	<color-no-energy red="0.3" green="0.0" blue="0.0" alpha="0.0" />
+	<texture value="true" path="disc_1.png" luminance="false" />
+	<direction x="0" y="0" z="-1.1"/>
+	<relative value="true"/>
+	<relativeDirection value="true"/>
+	<fixed value="false"/>
+	<model value="false"/>
+	<primitive value="quad"/>
+	<size-no-energy value="0.02" />
+	<speed value="3.0" />
+	<gravity value="0.0"/>
+	<energy-max value="30" />
+	<energy-var value="3" />
+</unit-particle-system>

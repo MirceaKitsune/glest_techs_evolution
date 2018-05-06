@@ -1,0 +1,167 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<parameters>
+		<size value="5" />
+		<height value="7" />
+		<max-hp value="4000" regeneration="0"/>
+		<max-ep value="0" />
+		<armor value="10" />
+		<armor-type value="metal"/>
+		<sight value="10" />
+		<time value="200" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="11111"/>
+			<row value="11111"/>
+			<row value="11111"/>
+			<row value="11111"/>
+			<row value="11110"/>
+			<row value="11110"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false" />
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="150" />
+			<resource name="stone" amount="100" />
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/factory.bmp"/>
+		<image-cancel path="$COMMONDATAPATH/images/age6_cancel.bmp"/>
+		<meeting-point value="true" image-path="$COMMONDATAPATH/images/age6_meeting_point.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/building_select_2.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/building_select_2.wav" />
+		</command-sounds>
+	</parameters>
+
+	<skills>
+
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="20" />
+			<animation path="models/factory.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/factory_build.g3d" />    <particles value="true">
+				<particle-file path="built_smoke_6.xml"/>
+				<particle-file path="built_spark_6.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+
+		<skill>
+			<type value="produce"/>
+			<name value="produce_skill"/>	
+			<ep-cost value="0" />
+			<speed value="80" />
+			<anim-speed value="30" />
+			<animation path="models/factory.g3d" />    <particles value="true">
+				<particle-file path="factory_smokestack.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="250"/>
+			<animation path="models/factory_build.g3d" />
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="25" />
+			<animation path="models/factory_die.g3d" />    <particles value="true">
+				<particle-file path="damage_smoke_6.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/building_destroy.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_ifv_rocket" />
+			<image path="../age6_ifv_rocket/images/ifv_rocket.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age6_ifv_rocket"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_battle_tank" />
+			<image path="../age6_battle_tank/images/battle_tank.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age6_battle_tank"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_eml_walker" />
+			<image path="../age6_eml_walker/images/eml_walker.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age6_eml_walker"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_mrls" />
+			<image path="../age6_mrls/images/mrls.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age6_mrls"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_7"/>
+			<image path="../age7_command_port/images/command_port.bmp"/>
+			<unit-requirements>
+				<unit name="age7_baseship"/>
+			</unit-requirements>
+			<upgrade-requirements />
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age7_command_port"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

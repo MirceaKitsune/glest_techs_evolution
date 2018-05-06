@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="gold" amount="200"/>
+		<resource name="wood" amount="300"/>
+		<resource name="stone" amount="150"/>
+		<resource name="food" amount="10"/>
+		<resource name="oil" amount="0"/>
+	</starting-resources>
+	<starting-units>
+		<unit name="age1_tent" amount="1"/>
+		<unit name="age1_snake_basket" amount="1"/>
+		<unit name="age1_worker" amount="3"/>
+		<unit name="age1_spearman" amount="2"/>
+		<unit name="age1_spearthrower" amount="1"/>
+		<unit name="animal_chicken" amount="2"/>
+	</starting-units>
+	<music value="true" path="music/manolo_camp-medieval.ogg"/>
+</faction>

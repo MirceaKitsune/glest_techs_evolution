@@ -1,0 +1,163 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="5" />
+		<height value="2" />
+		<max-hp value="5000" regeneration="0"/>
+		<max-ep value="0" />
+		<armor value="0" />
+		<armor-type value="stone"/>				
+		<sight value="15" />
+		<time value="100" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="11011"/>
+			<row value="11011"/>
+			<row value="00000"/>
+			<row value="11111"/>
+			<row value="11110"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties/>
+		<light enabled="true" red="0.8" green="0.8" blue="0.5"/>
+		<damage-particles value="true">
+			<particle-file path="fire_particles1.xml"/>
+			<particle-file path="smoke_particles1.xml"/>
+			<particle-file path="fire_particles2.xml"/>
+			<particle-file path="smoke_particles2.xml"/>
+			<particle-file path="fire_particles3.xml"/>
+			<particle-file path="smoke_particles3.xml"/>
+		</damage-particles>
+		<unit-requirements/>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="150" />
+			<resource name="stone" amount="100" />
+			<resource name="wood" amount="50" />
+			<resource name="food" amount="-5" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "gold" amount="3000"/>
+			<resource name= "wood" amount="2400"/>				
+			<resource name= "stone" amount="2400"/>				
+			<resource name= "food" amount="300"/>	
+		</resources-stored>
+		<image path="images/forum.bmp" />
+		<image-cancel path="$COMMONDATAPATH/images/age2_cancel.bmp"/>
+		<meeting-point value="true" image-path="$COMMONDATAPATH/images/age2_meeting_point.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav" />
+		</command-sounds>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="100" />
+			<animation path="models/fourm.g3d" />
+			<sound enabled="false" />
+		</skill>
+		
+		<skill>
+			<type value="be_built" />
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/fourm_build.g3d" />
+			<sound enabled="false" />
+		</skill>	
+		
+		<skill>
+			<type value="produce" />
+			<name value="produce_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/fourm.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="250"/>
+			<animation path="models/fourm_build.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/fourm_destruction.g3d" />
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tech_building_fall2.wav"/>
+			</sound>			
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_slave" />
+			<image path="../age2_slave/images/slave.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age2_slave"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_doctor" />
+			<image path="../age2_doctor/images/doctor.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="age2_doctor"/>
+		</command>
+
+		<command>
+			<type value="morph"/>
+			<name value="upgrade_to_age_3"/>
+			<image path="../age3_castle/images/castle.bmp"/>
+			<unit-requirements>
+				<unit name="age2_temple"/>
+			</unit-requirements>
+			<upgrade-requirements>
+				<upgrade name="age2_swords"/>
+				<upgrade name="age2_bows"/>
+				<upgrade name="age2_horse_riding"/>
+				<upgrade name="age2_sharpen_blades"/>
+				<upgrade name="age2_sharpen_points"/>
+				<upgrade name="age2_reinforce_armor"/>
+				<upgrade name="age2_reinforce_shields"/>
+			</upgrade-requirements>
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "age3_castle"/>
+			<discount value="50"/>
+		</command>
+
+	</commands>
+</unit>

@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<unit-particle-system>
+    <!--[stuff to fiddle with]-->
+        <size value="0.2" /> <!--[size]-->
+    <offset x="0.0" y="2.3" z="0.3"/> <!--[relative to unit/building]-->
+    <color red="1" green="0.1" blue="0.1" alpha="0.5" /> <!--[colour]-->
+        <emission-rate value="1.4" /> <!--[flash speed; try between 1 and 2;
+        1.1 is often dull pulsing bright, 1.9 is often bright pulsing dull]-->
+        
+        <!--[think this stuff below is all set right]-->
+    <radius value="0.01"/>
+        <texture value="true" path="particle_disc.png" luminance="false" />
+    <direction x="0" y="0" z="0.5"/>
+    <relative value="true"/>
+    <fixed value="true"/>
+        <model value="false"/>
+    <primitive value="quad"/>
+    <color-no-energy red="0.6" green="0.3" blue="0.1" alpha="1" />
+        <size-no-energy value="2" />
+        <speed value="0.1" />
+    <gravity value="0.0"/>
+        <energy-max value="1" />
+        <energy-var value="0" />
+</unit-particle-system>
